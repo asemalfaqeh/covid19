@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.MainActivity">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipe">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="..."
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/grey_dark"
+                android:padding="6dp"
+                android:id="@+id/last_update"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:padding="12dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="4dp"
+                app:cardBackgroundColor="@color/green"
+                app:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:padding="2dp"
+                        android:text="@string/cases"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/all_cases"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="282828"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center_horizontal"
+                        android:padding="2dp"
+                        android:text="@string/deaths"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/all_deaths"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:text="6,938"
+                        android:textColor="@color/red"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_horizontal"
+                        android:padding="2dp"
+                        android:text="@string/recovered"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/recovered_all"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:gravity="center_horizontal"
+                        android:text="116938"
+                        android:textColor="@color/grey"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="6dp"
+                android:padding="12dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="4dp"
+                app:cardBackgroundColor="@color/blue"
+                app:cardCornerRadius="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            android:textSize="23sp"
+                            android:textStyle="bold"
+                            android:padding="6dp"
+                            android:text="New Cases"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="23sp"
+                            android:textStyle="bold"
+                            android:id="@+id/new_cases"
+                            android:padding="6dp"
+                            android:text="232"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            android:textSize="23sp"
+                            android:textStyle="bold"
+                            android:padding="6dp"
+                            android:text="New Deaths"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/red"
+                            android:textSize="23sp"
+                            android:textStyle="bold"
+                            android:id="@+id/new_deaths"
+                            android:padding="6dp"
+                            android:text="23"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:lines="2"
+                                android:background="@drawable/border"
+                                android:text="Country"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:gravity="center"
+                                android:lines="2"
+                                android:background="@drawable/border"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:text="cases"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:background="@drawable/border"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:lines="2"
+                                android:text="Today Cases"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:padding="8dp"
+                                android:lines="2"
+                                android:text="Deaths"
+                                android:textStyle="bold" />
+
+
+                            <TextView
+                                android:layout_width="150dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:lines="2"
+                                android:padding="8dp"
+                                android:text="Today Deaths"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
+                                android:lines="2"
+                                android:background="@drawable/border"
+                                android:padding="8dp"
+                                android:text="@string/recovered"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:gravity="center"
+                                android:lines="2"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border"
+                                android:padding="8dp"
+                                android:text="Critical"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>
