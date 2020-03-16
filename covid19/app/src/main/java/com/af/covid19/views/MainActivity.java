@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 new_cases.setText(allCasesResponse.getNew_cases() + "");
                 last_update.setText(allCasesResponse.getStatistic_taken_at() + "");
             });
+            //android new porject//
 
             new Handler().postDelayed(() -> {
                 swipeRefreshLayout.setRefreshing(false);
