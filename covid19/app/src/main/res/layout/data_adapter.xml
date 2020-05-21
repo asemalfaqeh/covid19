@@ -38,6 +38,7 @@
             android:padding="8dp"
             android:background="@drawable/border"
             android:id="@+id/today_cases"
+            android:backgroundTint="@color/yellow"
             android:textStyle="bold"
             android:text="Today Cases" />
 
@@ -65,6 +66,16 @@
             android:background="@drawable/border"
             android:textStyle="bold"
             android:text="Today Deaths" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:id="@+id/active_cases"
+            android:background="@drawable/border"
+            android:textStyle="bold"
+            android:text="@string/active_cases" />
 
         <TextView
             android:layout_width="100dp"

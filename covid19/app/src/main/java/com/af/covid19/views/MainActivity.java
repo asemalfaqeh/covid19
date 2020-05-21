@@ -1,21 +1,20 @@
 package com.af.covid19.views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.TextView;
-
 import com.af.covid19.R;
-import com.af.covid19.model.AllCasesResponse;
 import com.af.covid19.model.DataResponse;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DataViewModel dataViewModel;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private AdView adView;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -43,11 +43,12 @@ public class MainActivity extends AppCompatActivity {
         new_deaths = findViewById(R.id.new_deaths);
         last_update = findViewById(R.id.last_update);
         swipeRefreshLayout = findViewById(R.id.swipe);
+        adView = findViewById(R.id.adView);
 
         dataViewModel.getAllCasesViewModel().observe(this, allCasesResponse -> {
             all_cases.setText(allCasesResponse.getTotal_cases() + "");
             all_recovered.setText(allCasesResponse.getTotal_recovered() + "");
-            all_deaths.setText(allCasesResponse.getTotal_recovered() + "");
+            all_deaths.setText(allCasesResponse.getTotal_deaths() + "");
             new_deaths.setText(allCasesResponse.getNew_deaths() + "");
             new_cases.setText(allCasesResponse.getNew_cases() + "");
             last_update.setText(allCasesResponse.getStatistic_taken_at() + "");
@@ -58,22 +59,21 @@ public class MainActivity extends AppCompatActivity {
         swipeRefreshLayout.setOnRefreshListener(() -> {
 
             swipeRefreshLayout.setRefreshing(true);
-
-            dataViewModel.getDataViewModel().observe(MainActivity.this, this::initRecyclerView);
-            dataViewModel.getAllCasesViewModel().observe(this, allCasesResponse -> {
-                all_cases.setText(allCasesResponse.getTotal_cases() + "");
-                all_recovered.setText(allCasesResponse.getTotal_recovered() + "");
-                all_deaths.setText(allCasesResponse.getTotal_recovered() + "");
-                new_deaths.setText(allCasesResponse.getNew_deaths() + "");
-                new_cases.setText(allCasesResponse.getNew_cases() + "");
-                last_update.setText(allCasesResponse.getStatistic_taken_at() + "");
-            });
-            //android new porject//
+            swipeRefreshLayout.destroyDrawingCache();
+            swipeRefreshLayout.clearAnimation();
 
             new Handler().postDelayed(() -> {
                 swipeRefreshLayout.setRefreshing(false);
-                swipeRefreshLayout.destroyDrawingCache();
-                swipeRefreshLayout.clearAnimation();
+                dataViewModel.getDataViewModel().observe(MainActivity.this, this::initRecyclerView);
+                dataViewModel.getAllCasesViewModel().observe(this, allCasesResponse -> {
+                    all_cases.setText(allCasesResponse.getTotal_cases() + "");
+                    all_recovered.setText(allCasesResponse.getTotal_recovered() + "");
+                    all_deaths.setText(allCasesResponse.getTotal_deaths() + "");
+                    new_deaths.setText(allCasesResponse.getNew_deaths() + "");
+                    new_cases.setText(allCasesResponse.getNew_cases() + "");
+                    last_update.setText(allCasesResponse.getStatistic_taken_at() + "");
+                });
+                //android new porject//
             },1500);
 
         });
@@ -91,6 +91,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onStart(){
+        super.onStart();
+       loadAdBannerView();
+        // TODO: Add adView to your view hierarchy.
+    }
+
+    @Override
     public void onDestroy(){
         super.onDestroy();
         dataViewModel.clear();
@@ -102,6 +109,13 @@ public class MainActivity extends AppCompatActivity {
         StaggeredGridLayoutManager st = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(st);
         dataAdapter.notifyDataSetChanged();
+    }
+
+    private void loadAdBannerView(){
+        MobileAds.initialize(this, initializationStatus -> Log.e("AdView: " , "InitializeSuccess"));
+        // load admob //
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
 
 }

@@ -7,16 +7,28 @@
     android:orientation="vertical"
     tools:context=".views.MainActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:gravity="center_vertical">
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad"/>
+
+    </RelativeLayout>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/swipe">
 
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,9 +41,9 @@
                 android:text="..."
                 android:gravity="center_horizontal"
                 android:textStyle="bold"
-                android:textSize="16sp"
+                android:textSize="13sp"
                 android:textColor="@color/grey_dark"
-                android:padding="6dp"
+                android:padding="3dp"
                 android:id="@+id/last_update"/>
 
             <androidx.cardview.widget.CardView
@@ -39,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
-                android:padding="12dp"
+                android:padding="6dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="4dp"
                 app:cardBackgroundColor="@color/green"
@@ -59,7 +71,7 @@
                         android:padding="2dp"
                         android:text="@string/cases"
                         android:textColor="@color/grey_dark"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -67,9 +79,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
-                        android:text="282828"
+                        android:text="..."
                         android:textColor="@color/white"
-                        android:textSize="24sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -81,7 +93,7 @@
                         android:padding="2dp"
                         android:text="@string/deaths"
                         android:textColor="@color/grey_dark"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -91,7 +103,7 @@
                         android:gravity="center_horizontal"
                         android:text="6,938"
                         android:textColor="@color/red"
-                        android:textSize="24sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -103,7 +115,7 @@
                         android:padding="2dp"
                         android:text="@string/recovered"
                         android:textColor="@color/grey_dark"
-                        android:textSize="22sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -112,9 +124,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="3dp"
                         android:gravity="center_horizontal"
-                        android:text="116938"
+                        android:text="70,000"
                         android:textColor="@color/grey"
-                        android:textSize="24sp"
+                        android:textSize="22sp"
                         android:textStyle="bold" />
 
 
@@ -145,6 +157,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
                         android:gravity="center_horizontal"
                         android:layout_height="wrap_content">
 
@@ -152,19 +165,19 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
-                            android:textSize="23sp"
+                            android:textSize="20sp"
                             android:textStyle="bold"
-                            android:padding="6dp"
+                            android:padding="4dp"
                             android:text="New Cases"/>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
-                            android:textSize="23sp"
+                            android:textSize="22sp"
                             android:textStyle="bold"
                             android:id="@+id/new_cases"
-                            android:padding="6dp"
+                            android:padding="4dp"
                             android:text="232"/>
 
                     </LinearLayout>
@@ -173,6 +186,7 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:orientation="vertical"
+                        android:layout_gravity="center_vertical"
                         android:gravity="center_horizontal"
                         android:layout_height="wrap_content">
 
@@ -180,7 +194,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
-                            android:textSize="23sp"
+                            android:textSize="20sp"
                             android:textStyle="bold"
                             android:padding="6dp"
                             android:text="New Deaths"/>
@@ -189,10 +203,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/red"
-                            android:textSize="23sp"
+                            android:textSize="22sp"
                             android:textStyle="bold"
                             android:id="@+id/new_deaths"
-                            android:padding="6dp"
+                            android:padding="4dp"
                             android:text="23"/>
 
                     </LinearLayout>
@@ -209,6 +223,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fillViewport="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -237,7 +255,7 @@
                                 android:background="@drawable/border"
                                 android:layout_height="wrap_content"
                                 android:padding="8dp"
-                                android:text="cases"
+                                android:text="Cases"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -276,6 +294,17 @@
                                 android:layout_width="100dp"
                                 android:gravity="center"
                                 android:layout_height="wrap_content"
+                                android:padding="8dp"
+                                android:lines="2"
+                                android:id="@+id/active_cases"
+                                android:background="@drawable/border"
+                                android:textStyle="bold"
+                                android:text="@string/active_cases" />
+
+                            <TextView
+                                android:layout_width="100dp"
+                                android:gravity="center"
+                                android:layout_height="wrap_content"
                                 android:lines="2"
                                 android:background="@drawable/border"
                                 android:padding="8dp"
@@ -306,11 +335,14 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
+                    </androidx.core.widget.NestedScrollView>
+
                 </LinearLayout>
-            </HorizontalScrollView>
+
+        </HorizontalScrollView>
 
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.WelcomeScreenActivity">
+
+    <ImageView
+        android:layout_width="175dp"
+        android:layout_height="125dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/line1"
+        android:background="@drawable/splash_logo"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/line1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:layout_marginTop="45dp"
+        android:textSize="26sp"
+        android:padding="8dp"
+        android:textStyle="bold"
+        android:id="@+id/tips"
+        android:rotation="-3"
+        android:layout_below="@id/line1"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Stay at Home"/>
+
+</RelativeLayout>

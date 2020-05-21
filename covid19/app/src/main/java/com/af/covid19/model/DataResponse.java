@@ -27,6 +27,7 @@ public class DataResponse {
          @SerializedName("cases")
          @Expose
          private String cases;
+
          @SerializedName("deaths")
          @Expose
          private String deaths;
@@ -45,6 +46,18 @@ public class DataResponse {
          @SerializedName("serious_critical")
          @Expose
          private String seriousCritical;
+
+         @SerializedName("active_cases")
+         @Expose
+         private String active_cases;
+
+         public String getActive_cases() {
+             return active_cases;
+         }
+
+         public void setActive_cases(String active_cases) {
+             this.active_cases = active_cases;
+         }
 
          public String getCountryName() {
              return countryName;

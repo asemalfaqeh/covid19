@@ -1,16 +1,12 @@
 package com.af.covid19.datasource.repositories;
 
 import android.app.Application;
-import android.util.Log;
 import android.widget.Toast;
-
 import androidx.lifecycle.MutableLiveData;
-
 import com.af.covid19.datasource.ApiEndPoints;
 import com.af.covid19.datasource.RetrofitInstance;
 import com.af.covid19.model.AllCasesResponse;
 import com.af.covid19.model.DataResponse;
-
 import java.util.ArrayList;
 import java.util.List;
 import io.reactivex.Observable;
@@ -54,6 +50,7 @@ public class DataRepository extends RetrofitInstance {
                     countriesStat1.setRegion(countriesStat2.getRegion());
                     countriesStat1.setSeriousCritical(countriesStat2.getSeriousCritical());
                     countriesStat1.setTotalRecovered(countriesStat2.getTotalRecovered());
+                    countriesStat1.setActive_cases(countriesStat2.getActive_cases());
 
                     dataResponseArrayList.add(countriesStat1);
 

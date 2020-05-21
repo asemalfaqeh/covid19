@@ -2,11 +2,11 @@ package com.af.covid19.views;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,8 +39,6 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.Viewholder> {
 
         DataResponse.CountriesStat casesResponse = dataResponses.get(position);
 
-        Log.e("NewDeaths: " , casesResponse.getNewDeaths() + "");
-
         holder.critical.setText(casesResponse.getSeriousCritical() + "");
         holder.deathstoday.setText(casesResponse.getNewDeaths()+ "");
         holder.recovered.setText(casesResponse.getTotalRecovered() + "");
@@ -48,6 +46,17 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.Viewholder> {
         holder.deaths.setText(casesResponse.getDeaths() + "");
         holder.country.setText(casesResponse.getCountryName() + "");
         holder.cases.setText(casesResponse.getCases() + "");
+        holder.active_cases.setText(casesResponse.getActive_cases() + "");
+
+        holder.critical.setOnClickListener(v -> Toast.makeText(context, "Critical", Toast.LENGTH_SHORT).show());
+        holder.deathstoday.setOnClickListener(v -> Toast.makeText(context, "Today Deaths", Toast.LENGTH_SHORT).show());
+        holder.recovered.setOnClickListener(v -> Toast.makeText(context, "Recovered", Toast.LENGTH_SHORT).show());
+        holder.casestoday.setOnClickListener(v -> Toast.makeText(context, "Cases Today", Toast.LENGTH_SHORT).show());
+        holder.deaths.setOnClickListener(v -> Toast.makeText(context, "Deaths", Toast.LENGTH_SHORT).show());
+        holder.country.setOnClickListener(v -> Toast.makeText(context, "Country", Toast.LENGTH_SHORT).show());
+        holder.cases.setOnClickListener(v -> Toast.makeText(context, "Cases", Toast.LENGTH_SHORT).show());
+        holder.active_cases.setOnClickListener(v -> Toast.makeText(context, "Active Cases", Toast.LENGTH_SHORT).show());
+
 
     }
 
@@ -58,7 +67,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.Viewholder> {
 
      class Viewholder extends RecyclerView.ViewHolder {
 
-        TextView cases, deaths, casestoday, deathstoday, recovered, critical, country;
+        TextView cases, deaths, casestoday, deathstoday, recovered, critical, country, active_cases, chart;
 
          Viewholder(@NonNull View itemView) {
             super(itemView);
@@ -70,7 +79,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.Viewholder> {
             recovered = itemView.findViewById(R.id.recovered);
             deathstoday = itemView.findViewById(R.id.today_deaths);
             critical = itemView.findViewById(R.id.critical);
-
+            active_cases = itemView.findViewById(R.id.active_cases);
 
         }
     }

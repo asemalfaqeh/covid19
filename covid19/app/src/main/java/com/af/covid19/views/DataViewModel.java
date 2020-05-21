@@ -5,11 +5,9 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-
 import com.af.covid19.datasource.repositories.DataRepository;
 import com.af.covid19.model.AllCasesResponse;
 import com.af.covid19.model.DataResponse;
-
 import java.util.List;
 
 public class DataViewModel extends AndroidViewModel {
@@ -29,7 +27,7 @@ public class DataViewModel extends AndroidViewModel {
         return dataRepository.getAllCasesRepo();
     }
 
-    public void clear(){
+    void clear(){
         dataRepository.clear();
     }
 
